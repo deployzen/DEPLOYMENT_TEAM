@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: boardgame-deployment
+  name: DEPLOYMENT_TEAM-deployment
 spec:
   selector:
     matchLabels:
-      app: boardgame
+      app: DEPLOYMENT_TEAM
   replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: boardgame
+        app: DEPLOYMENT_TEAM
     spec:
       containers:
-        - name: boardgame
+        - name: DEPLOYMENT_TEAM
           image: adijaiswal/boardshack:latest # Image that will be used to containers in the cluster
           imagePullPolicy: Always
           ports:
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
-  name: boardgame-ssvc
+  name: DEPLOYMENT_TEAM-ssvc
 spec:
   selector:
-    app: boardgame
+    app: DEPLOYMENT_TEAM
   ports:
     - protocol: "TCP"
       port: 80
