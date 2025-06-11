@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: DEPLOYMENT_TEAM-deployment
+  name: deployment-team-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: DEPLOYMENT_TEAM
+      app: deployment-team
   template:
     metadata:
       labels:
-        app: DEPLOYMENT_TEAM
+        app: deployment-team
     spec:
       containers:
-        - name: DEPLOYMENT_TEAM
+        - name: deployment-team
           image: dhanashree1572/flask-demo-app:latest
           imagePullPolicy: Always
           ports:
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: DEPLOYMENT_TEAM-ssvc
+  name: deployment-team-ssvc
 spec:
   selector:
-    app: DEPLOYMENT_TEAM
+    app: deployment-team
   ports:
     - protocol: TCP
       port: 80
